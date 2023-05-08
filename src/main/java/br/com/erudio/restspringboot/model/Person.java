@@ -3,6 +3,7 @@ package br.com.erudio.restspringboot.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+
 public class Person implements Serializable {
     private Long id;
     private String firstName;
