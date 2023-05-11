@@ -1,9 +1,9 @@
 package br.com.erudio.restspringboot.service;
 
 import br.com.erudio.restspringboot.model.Person;
+import br.com.erudio.restspringboot.repositories.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
@@ -13,6 +13,9 @@ public class PersonServices {
     private final AtomicLong counter = new AtomicLong();
 
     private Logger logger = Logger.getLogger(PersonServices.class.getName());
+
+    @Autowired
+    PersonRepository personRepository;
 
     public Person findById(String id) {
         Person person = new Person();
@@ -27,15 +30,7 @@ public class PersonServices {
 
     public List<Person> findAll(){
         logger.info("Finding all people...");
-
-        List<Person> persons = new ArrayList<>();
-
-        for (int i = 0; i < 8; i++){
-            Person person = mockPerson(i);
-            persons.add(person);
-        }
-
-        return persons;
+        return personRepository.findAll();
     }
 
     public Person create(Person person) {
