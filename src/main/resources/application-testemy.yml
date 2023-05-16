@@ -1,9 +1,9 @@
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/rest_with_spring_boot_erudio
+    url: jdbc:mysql://localhost:3307/rest_with_spring_boot_erudio
     username: root
-    password: Root
+    password: 123456
   jpa:
     hibernate.ddl-auto: create-drop
     generate-ddl: true
